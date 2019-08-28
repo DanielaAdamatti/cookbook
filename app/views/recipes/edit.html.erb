@@ -1,6 +1,10 @@
 <%= form_for @recipe do |f| %>
   <%= f.label :title, 'Título' %>
   <%= f.text_field :title %>
+  <%= f.label :recipe_type, 'Tipo da Receita' %>
+  <%= f.text_field :recipe_type %>
+  <%= f.label :cuisine, 'Cozinha' %>
+  <%= f.text_field :cuisine %>
   <%= f.label :difficulty, 'Dificuldade' %>
   <%= f.text_field :difficulty %>
   <%= f.label :cook_time, 'Tempo de Preparo' %>
