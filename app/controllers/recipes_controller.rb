@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @recipes = Recipe.all
   end
@@ -14,13 +17,15 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    if @recipe.save
-      redirect_to @recipe
-    else
-      flash[:alert] = 'Não foi possível salvar a receita'
-      @recipe_types = RecipeType.all
-      render :new
-    end
+    @recipe.user = current_user
+
+      if @recipe.save
+        redirect_to @recipe
+      else
+        flash[:alert] = 'Não foi possível salvar a receita'
+        @recipe_types = RecipeType.all
+        render :new
+      end
   end
 
   def edit

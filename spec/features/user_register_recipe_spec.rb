@@ -3,11 +3,17 @@ require 'rails_helper'
 feature 'User register recipe' do
   scenario 'successfully' do
     #cria os dados necessários, nesse caso não vamos criar dados no banco
+    User.create(email:'daniela@email.com', password: '123456')
     RecipeType.create(name: 'Sobremesa')
     RecipeType.create(name: 'Entrada')
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Entrar'
+    fill_in "E-mail", with: "daniela@email.com"
+    fill_in "Senha", with: "123456"
+    click_on "Enviar"
+
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: 'Tabule'
@@ -34,8 +40,13 @@ feature 'User register recipe' do
   end
 
   scenario 'and must fill in all fields' do
+    user = User.create!(email:'email@email.com', password: '123456')
     # simula a ação do usuário
     visit root_path
+    click_on 'Entrar'
+    fill_in "E-mail", with: "email@email.com"
+    fill_in "Senha", with: "123456"
+    click_on "Enviar"
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: ''

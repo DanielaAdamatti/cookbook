@@ -39,7 +39,4 @@ feature 'admin register recipe type' do
     #expectativa do usuário após a ação
     expect(page).to have_content('Tipo de receita já cadastrado')
   end
-
-
-
 end

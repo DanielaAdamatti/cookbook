@@ -3,17 +3,19 @@ require 'rails_helper'
 feature 'user search for recipe' do
   scenario 'exact recipe name and finds recipe' do
     # cria os dados necessários
+    user = User.create!(email:'email@email.com', password: '123456')
+
     recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                           cuisine: 'Brasileira', difficulty: 'Médio',
-                           cook_time: 60,
-                           ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-    another_recipe = Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
-                                   cuisine: 'Brasileira', difficulty: 'Médio',
-                                   cook_time: 60,
-                                   ingredients: 'Farinha, açucar, cenoura',
-                                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
+                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cook_time: 60, user: user,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
+                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cook_time: 60, user: user,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
 
     #simula ação do usuário
     visit root_path
@@ -27,17 +29,19 @@ feature 'user search for recipe' do
 
   scenario 'exact recipe name and do not find recipe' do
     # cria os dados necessários
+    user = User.create!(email:'email@email.com', password: '123456')
+
     recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                           cuisine: 'Brasileira', difficulty: 'Médio',
-                           cook_time: 60,
-                           ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-    other_recipe = Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
-                                 cuisine: 'Brasileira', difficulty: 'Médio',
-                                 cook_time: 60,
-                                 ingredients: 'Farinha, açucar, cenoura',
-                                 cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
+                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cook_time: 60, user: user,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
+                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cook_time: 60, user: user,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
 
     #simula ação do usuário
     visit root_path
@@ -52,22 +56,24 @@ feature 'user search for recipe' do
 
   scenario 'partial recipe name and finds multiple recipe' do
     # cria os dados necessários
+    user = User.create!(email:'email@email.com', password: '123456')
+
     recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                           cuisine: 'Brasileira', difficulty: 'Médio',
-                           cook_time: 60,
-                           ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-    other_recipe = Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
-                                 cuisine: 'Brasileira', difficulty: 'Médio',
-                                 cook_time: 60,
-                                 ingredients: 'Farinha, açucar, cenoura',
-                                 cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-    another_recipe = Recipe.create(title: 'Pudim de chocolate', recipe_type: recipe_type,
-                                   cuisine: 'Brasileira', difficulty: 'Médio',
-                                   cook_time: 60,
-                                   ingredients: 'Farinha, açucar, cenoura',
-                                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
+                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cook_time: 60, user: user,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
+                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cook_time: 60, user: user,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Pudim de chocolate', recipe_type: recipe_type,
+                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cook_time: 60, user: user,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
 
     #simula ação do usuário
     visit root_path

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'home#index'
   get '/recipes/search', to: 'recipes#search' #recipes search route
 
