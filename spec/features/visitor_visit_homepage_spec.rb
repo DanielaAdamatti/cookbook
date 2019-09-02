@@ -27,6 +27,7 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('li', text: recipe.cuisine)
     expect(page).to have_css('li', text: recipe.difficulty)
     expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
+    expect(page).to have_css('li', text: "Receita enviada por #{recipe.user.email}")
   end
 
   scenario 'and view recipes list' do
@@ -56,11 +57,13 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('li', text: recipe.cuisine)
     expect(page).to have_css('li', text: recipe.difficulty)
     expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
+    expect(page).to have_css('li', text: "Receita enviada por #{recipe.user.email}")
 
     expect(page).to have_css('h1', text: another_recipe.title)
     expect(page).to have_css('li', text: another_recipe.recipe_type.name)
     expect(page).to have_css('li', text: another_recipe.cuisine)
     expect(page).to have_css('li', text: another_recipe.difficulty)
     expect(page).to have_css('li', text: "#{another_recipe.cook_time} minutos")
+    expect(page).to have_css('li', text: "Receita enviada por #{recipe.user.email}")
   end
 end
