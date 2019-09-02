@@ -1,0 +1,9 @@
+<% if @recipes.any? %>
+  <% @recipes.each do |recipe| %>
+    <ul>
+      <li><%= recipe.title %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p> Você não tem receitas cadastradas </p>
+<% end %>

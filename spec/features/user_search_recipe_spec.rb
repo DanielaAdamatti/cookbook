@@ -4,7 +4,6 @@ feature 'user search for recipe' do
   scenario 'exact recipe name and finds recipe' do
     # cria os dados necessários
     user = User.create!(email:'email@email.com', password: '123456')
-
     recipe_type = RecipeType.create(name: 'Sobremesa')
     Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                   cuisine: 'Brasileira', difficulty: 'Médio',

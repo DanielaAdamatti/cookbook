@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'User update recipe' do
   scenario 'successfully' do
     user = User.create!(email:'email@email.com', password: '123456')
-
     recipe_type = RecipeType.create(name: 'Sobremesa')
     RecipeType.create(name: 'Entrada')
     recipe = Recipe.create!(title: 'Bolodecenoura', recipe_type: recipe_type,

@@ -4,12 +4,6 @@
 <%= link_to 'Enviar uma receita', new_recipe_path %>
 <%= link_to 'Cadastrar Tipo de Receita', new_recipe_type_path %>
 
-<%= form_tag(recipes_search_path, method: :get) do %>
-  <%= label_tag(:q, "Busca") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Buscar") %>
-<% end %>
-
 <% @recipes.each do |recipe| %>
   <h1> <%= link_to recipe.title, recipe %></h1>
   <ul>

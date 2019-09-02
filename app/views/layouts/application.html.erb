@@ -14,9 +14,17 @@
       <% if user_signed_in? %>
         <p> Bem-vinda(o) <%= current_user.email%> </p>
         <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
+        <%= link_to('Minhas receitas', userrecipes_path) %>
       <% else %>
         <%= link_to 'Entrar', new_user_session_path %>
       <% end %>
+
+      <%= form_tag(recipes_search_path, method: :get) do %>
+        <%= label_tag(:q, "Busca") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Buscar") %>
+      <% end %>
+
     </nav>
     <%= flash[:alert] %>
     <%= flash[:notice] %>
