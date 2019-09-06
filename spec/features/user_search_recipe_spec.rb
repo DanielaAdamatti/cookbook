@@ -5,13 +5,14 @@ feature 'user search for recipe' do
     # cria os dados necessários
     user = User.create!(email:'email@email.com', password: '123456')
     recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
     Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cuisine: cuisine, difficulty: 'Médio',
                   cook_time: 60, user: user,
                   ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
     Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
-                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cuisine: cuisine, difficulty: 'Médio',
                   cook_time: 60, user: user,
                   ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
@@ -31,13 +32,14 @@ feature 'user search for recipe' do
     user = User.create!(email:'email@email.com', password: '123456')
 
     recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
     Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cuisine: cuisine, difficulty: 'Médio',
                   cook_time: 60, user: user,
                   ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
     Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
-                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cuisine: cuisine, difficulty: 'Médio',
                   cook_time: 60, user: user,
                   ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
@@ -58,18 +60,19 @@ feature 'user search for recipe' do
     user = User.create!(email:'email@email.com', password: '123456')
 
     recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
     Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cuisine: cuisine, difficulty: 'Médio',
                   cook_time: 60, user: user,
                   ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
     Recipe.create(title: 'Bolo de chocolate', recipe_type: recipe_type,
-                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cuisine: cuisine, difficulty: 'Médio',
                   cook_time: 60, user: user,
                   ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
     Recipe.create(title: 'Pudim de chocolate', recipe_type: recipe_type,
-                  cuisine: 'Brasileira', difficulty: 'Médio',
+                  cuisine: cuisine, difficulty: 'Médio',
                   cook_time: 60, user: user,
                   ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')

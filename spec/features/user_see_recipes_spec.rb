@@ -5,19 +5,20 @@ feature 'User acces his recipes' do
     user = User.create(email: 'email@email.com', password: '123456')
     another_user = User.create(email: 'anotheremail@email.com', password: '123456')
     recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
 
     recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
-                  recipe_type: recipe_type, user: user, cuisine: 'Brasileira',
+                  recipe_type: recipe_type, user: user, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
 
     Recipe.create(title: 'Bolo de chocolate', difficulty: 'Médio',
-                  recipe_type: recipe_type, user: user, cuisine: 'Brasileira',
+                  recipe_type: recipe_type, user: user, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
 
     Recipe.create(title: 'Pudim', difficulty: 'Médio',
-                  recipe_type: recipe_type, user: another_user, cuisine: 'Brasileira',
+                  recipe_type: recipe_type, user: another_user, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
 

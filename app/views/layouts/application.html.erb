@@ -18,6 +18,7 @@
         <%= link_to 'Enviar uma receita', new_recipe_path %>
         <% if current_user.admin == true %>
             <%= link_to 'Cadastrar Tipo de Receita', new_recipe_type_path %>
+            <%= link_to 'Cadastrar Cozinha', new_cuisine_path %>
         <% end %>
       <% else %>
         <%= link_to 'Entrar', new_user_session_path %>

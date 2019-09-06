@@ -69,7 +69,7 @@ feature 'admin register recipe type' do
     click_on 'Enviar'
 
     #expectativa do usuário após a ação
-    expect(page).not_to have_content('Cadastrar Tipo de Receita')
+    expect(page).not_to have_link('Cadastrar Tipo de Receita')
   end
 
 end
