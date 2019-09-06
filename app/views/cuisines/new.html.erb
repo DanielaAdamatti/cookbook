@@ -1,4 +1,10 @@
 <%= form_for @cuisine do |f| %>
+<% if @cuisine.errors.any? %>
+  <!-- o nome da variável está aparecendo antes da mensagem de erro. Como alterar? -->
+  <% @cuisine.errors.full_messages.each do |message|%>
+    <%= message %>
+  <% end%>
+<% end %>
   <%= f.label :name, 'Nome' %>
   <%= f.text_field :name %>
   <%= f.submit 'Enviar' %>
