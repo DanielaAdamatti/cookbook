@@ -13,8 +13,12 @@
     <nav>
       <% if user_signed_in? %>
         <p> Bem-vinda(o) <%= current_user.email%> </p>
-        <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
-        <%= link_to('Minhas receitas', userrecipes_path) %>
+        <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+        <%= link_to 'Minhas receitas', userrecipes_path %>
+        <%= link_to 'Enviar uma receita', new_recipe_path %>
+        <% if current_user.admin == true %>
+            <%= link_to 'Cadastrar Tipo de Receita', new_recipe_type_path %>
+        <% end %>
       <% else %>
         <%= link_to 'Entrar', new_user_session_path %>
       <% end %>

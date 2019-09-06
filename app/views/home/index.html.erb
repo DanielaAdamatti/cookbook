@@ -1,9 +1,6 @@
 <h1> CookBook </h1>
 <p> Bem-vindo ao maior livro de receitas online </p>
 
-<%= link_to 'Enviar uma receita', new_recipe_path %>
-<%= link_to 'Cadastrar Tipo de Receita', new_recipe_type_path %>
-
 <% @recipes.each do |recipe| %>
   <h1> <%= link_to recipe.title, recipe %></h1>
   <ul>
@@ -11,6 +8,6 @@
     <li><%= recipe.cuisine %></li>
     <li><%= recipe.difficulty %></li>
     <li><%= recipe.cook_time_min %></li>
-    <li> Receita enviada por <%= recipe.user.email %></li>
+    <li> Receita enviada por <%= recipe.user.email %> </li>
   </ul>
 <% end %>

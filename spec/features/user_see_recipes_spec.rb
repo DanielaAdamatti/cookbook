@@ -6,7 +6,7 @@ feature 'User acces his recipes' do
     another_user = User.create(email: 'anotheremail@email.com', password: '123456')
     recipe_type = RecipeType.create(name: 'Sobremesa')
 
-    Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
+    recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, user: user, cuisine: 'Brasileira',
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
@@ -29,9 +29,9 @@ feature 'User acces his recipes' do
 
     click_on "Minhas receitas"
 
-    expect(page).to have_css('li', text:'Bolo de cenoura')
-    expect(page).to have_css('li', text:'Bolo de chocolate')
-    expect(page).not_to have_css('li', text:'Pudim')
+    expect(page).to have_link('Bolo de cenoura')
+    expect(page).to have_link('Bolo de chocolate')
+    expect(page).not_to have_link('li', text:'Pudim')
 
   end
 
