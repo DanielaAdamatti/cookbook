@@ -54,4 +54,60 @@ require 'rails_helper'
       expect(page).not_to have_css('h1', text: 'Bolo de cenoura')
 
     end
+
+    scenario 'and sees all available recipes' do
+      #cria dados necessários
+      user = User.create!(email:'email@email.com', password: '123456')
+      recipe_type = RecipeType.create(name: 'Sobremesa')
+      cuisine = Cuisine.create(name: 'Brasileira')
+      Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    cook_time: 50, user: user,
+                    ingredients: 'Farinha, açucar, cenoura',
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+      Recipe.create(title: 'Bolo de banana', difficulty: 'Médio',
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    cook_time: 50, user: user,
+                    ingredients: 'Farinha, açucar, cenoura',
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+      Recipe.create(title: 'Bolo de coco', difficulty: 'Médio',
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    cook_time: 50, user: user,
+                    ingredients: 'Farinha, açucar, cenoura',
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+      Recipe.create(title: 'Bolo de morango', difficulty: 'Médio',
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    cook_time: 50, user: user,
+                    ingredients: 'Farinha, açucar, cenoura',
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+      Recipe.create(title: 'Pudim', difficulty: 'Médio',
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    cook_time: 50, user: user,
+                    ingredients: 'Farinha, açucar, cenoura',
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+      Recipe.create(title: 'Gelatina', difficulty: 'Médio',
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    cook_time: 50, user: user,
+                    ingredients: 'Farinha, açucar, cenoura',
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+      Recipe.create(title: 'Massa carbonara', difficulty: 'Médio',
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    cook_time: 50, user: user,
+                    ingredients: 'Farinha, açucar, cenoura',
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+
+      # simula a ação do usuário
+      visit root_path
+      click_on 'Ver todas as receitas'
+
+      # expectativas do usuário após a ação
+      expect(page).to have_css('h1', text: 'Receitas cadastradas')
+      expect(page).to have_link('Massa carbonara')
+      expect(page).to have_link('Gelatina')
+      expect(page).to have_link('Pudim')
+      expect(page).to have_link('Bolo de morango')
+      expect(page).to have_link('Bolo de coco')
+      expect(page).to have_link('Bolo de banana')
+      expect(page).to have_link('Bolo de cenoura')
+    end
   end
