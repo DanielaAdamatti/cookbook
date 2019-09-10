@@ -17,6 +17,24 @@ require 'rails_helper'
 
       #expectativa do usuário após a ação
       expect(page).to have_css('h1', text: 'Receitas de Natal')
+    end
 
+    scenario 'and must fill in name' do
+      # cria os dados necessários
+      user = User.create!(email:'email@email.com', password: '123456')
+
+      #simula ação do usuário
+      visit root_path
+      click_on 'Entrar'
+      fill_in "E-mail", with: "email@email.com"
+      fill_in "Senha", with: "123456"
+      click_on "Enviar"
+
+      click_on 'Criar lista de receitas'
+      fill_in 'Nome da lista', with: ''
+      click_on 'Enviar'
+
+      #expectativa do usuário após a ação
+      expect(page).to have_content('O nome da lista deve ser informado')
     end
   end
