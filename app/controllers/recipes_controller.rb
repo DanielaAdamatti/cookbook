@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
     @recipes = Recipe.all
@@ -38,6 +38,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe_types = RecipeType.all
     @cuisines = Cuisine.all
+    redirect_to root_path unless current_user == @recipe.user
   end
 
   def update

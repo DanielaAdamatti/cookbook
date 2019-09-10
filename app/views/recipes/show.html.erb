@@ -17,4 +17,7 @@
 <p> Receita enviada por <%= @recipe.user.email %></p>
 
 <%= link_to 'Voltar', root_path%>
-<%= link_to 'Editar', edit_recipe_path(@recipe)%>
+
+<% if current_user == @recipe.user %>
+  <%= link_to 'Editar', edit_recipe_path(@recipe) %>
+<% end %>

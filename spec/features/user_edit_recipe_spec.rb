@@ -14,6 +14,11 @@ feature 'User update recipe' do
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Entrar'
+    fill_in "E-mail", with: "email@email.com"
+    fill_in "Senha", with: "123456"
+    click_on "Enviar"
+
     click_on 'Bolodecenoura'
     click_on 'Editar'
 
@@ -45,6 +50,11 @@ feature 'User update recipe' do
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Entrar'
+    fill_in "E-mail", with: "email@email.com"
+    fill_in "Senha", with: "123456"
+    click_on "Enviar"
+
     click_on 'Bolodecenoura'
     click_on 'Editar'
 
