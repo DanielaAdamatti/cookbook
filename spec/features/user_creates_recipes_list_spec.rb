@@ -1,5 +1,5 @@
 require 'rails_helper'
-  feature 'user creates recipe lists' do
+  feature 'user creates recipes list' do
     scenario 'successfully' do
 
     end
