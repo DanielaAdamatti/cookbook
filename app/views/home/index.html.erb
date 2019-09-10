@@ -3,6 +3,7 @@
 
 <% @recipes.last(6).each do |recipe| %>
   <h1> <%= link_to recipe.title, recipe %></h1>
+  <p> <%= image_tag recipe.recipe_image  if recipe.recipe_image.attached? %> </p>
   <ul>
     <li><%= recipe.recipe_type.name %></li>
     <li><%= recipe.cuisine.name %></li>

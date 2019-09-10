@@ -49,7 +49,6 @@ feature 'User update recipe' do
     click_on 'Editar'
 
     fill_in 'Título', with: ''
-    fill_in 'Cozinha', with: ''
     fill_in 'Dificuldade', with: ''
     fill_in 'Tempo de Preparo', with: ''
     fill_in 'Ingredientes', with: ''
