@@ -1,0 +1,9 @@
+<% if @lists.any? %>
+  <% @lists.each do |list| %>
+    <ul>
+      <li><%= link_to list.name, list %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p> Você não tem listas cadastradas </p>
+<% end %>
