@@ -21,5 +21,6 @@ class RecipeTypesController < ApplicationController
   def show_types
     @types = RecipeType.all
   end
+  
 
 end

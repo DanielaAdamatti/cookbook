@@ -58,6 +58,11 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where("title LIKE ?", "%#{params[:q]}%")
   end
 
+  def recipes_from_type
+    byebug
+   @recipes = Recipe.where(recipe_type: params[:recipe_type])
+ end
+
   private
 
   def recipe_params

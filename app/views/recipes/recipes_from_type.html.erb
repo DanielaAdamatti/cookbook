@@ -1,0 +1,9 @@
+<% if @recipes.any? %>
+  <% @recipes.each do |recipe| %>
+    <ul>
+      <li><%= link_to recipe.title, recipe %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p> Deu ruim </p>
+<% end %>
