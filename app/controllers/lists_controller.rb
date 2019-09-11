@@ -1,5 +1,9 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:index, :new, :create]
+
+  def index
+    @lists = current_user.lists
+  end
 
   def new
     @list = List.new
@@ -20,7 +24,4 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
   end
 
-  def show_user_lists
-    @lists = current_user.lists
-  end
 end

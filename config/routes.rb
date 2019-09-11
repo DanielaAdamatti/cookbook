@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   get '/recipes/search', to: 'recipes#search' #recipes search route
   get '/userrecipes', to: 'users#show' #route do user's recipes
   get '/recipes/show_all', to: 'recipes#show_all'
-  get '/userlists', to: 'lists#show_user_lists'
 
   resources :recipes, only: [:show, :new, :create, :edit, :update, :index]
   resources :recipe_types, only: [:new, :create, :show]
   resources :cuisines, only: [:new, :create, :show]
-  resources :lists, only: [:new, :create, :show]
+  resources :lists, only: [:index, :new, :create, :show]
 end
