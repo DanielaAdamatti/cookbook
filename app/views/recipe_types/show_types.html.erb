@@ -1,0 +1,12 @@
+<h1> Escolha sua receita </h1>
+<h4> Navegue por tipo de receita </h4>
+
+<% if @types.any? %>
+  <% @types.each do |type| %>
+    <ul>
+      <li><%= link_to type.name, type %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p> Deu ruim </p>
+<% end %>
