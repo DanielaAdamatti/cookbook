@@ -4,7 +4,7 @@
 <% if @recipe_types.any? %>
   <% @recipe_types.each do |recipe_type| %>
     <ul>
-      <li><%= link_to recipe_type.name, recipe_type_recipes_path(:recipe_type_id) %></li>
+      <li><%= link_to recipe_type.name, recipe_type_recipes_path(:recipe_type_id)%></li>
     </ul>
   <% end %>
 <% else %>

@@ -26,8 +26,8 @@
         <%= link_to 'Entrar', new_user_session_path %>
       <% end %>
 
-      <%= link_to 'Ver todas as receitas', recipes_show_all_path %>
-      <%= link_to 'Receitas', recipe_types_show_types_path %>
+      <%= link_to 'Ver todas as receitas', recipes_path %>
+      <%= link_to 'Receitas', recipe_types_path %>
 
       <%= form_tag(recipes_search_path, method: :get) do %>
         <%= label_tag(:q, "Busca") %>

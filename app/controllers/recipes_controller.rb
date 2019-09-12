@@ -3,11 +3,12 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
-    @recipes = Recipe.all
-  end
-
-  def show_all
-    @recipes = Recipe.all
+    if params[:recipe_type_id]
+      byebug
+      @recipes = Recipe.find(params[:recipe_type_id]).includes(:recipe_types).recipes
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -57,11 +58,6 @@ class RecipesController < ApplicationController
   def search
     @recipes = Recipe.where("title LIKE ?", "%#{params[:q]}%")
   end
-
-  def recipes_from_type
-    byebug
-   @recipes = Recipe.where(recipe_type: params[:recipe_type])
- end
 
   private
 
