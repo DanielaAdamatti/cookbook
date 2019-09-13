@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
 
   def index
     if params[:recipe_type_id]
-      byebug
       @recipes = Recipe.find(params[:recipe_type_id]).includes(:recipe_types).recipes
     else
       @recipes = Recipe.all

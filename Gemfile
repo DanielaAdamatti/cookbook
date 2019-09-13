@@ -28,7 +28,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Devise is a flexible authentication solution for Rails based on Warden
-gem 'devise'
+#gem 'devise'
+
+
+gem "devise", ">= 4.7.1"
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
